@@ -10,5 +10,10 @@ $modules = "$(split-path $profile)\Modules"
 
 # Adding a function and alias in order to use dotfile repo
 function config {
-  git --git-dir="$HOME\windotfiles" --work-tree="$HOME" 
+  git --git-dir="$HOME\windotfiles" --work-tree="$HOME" @ARGS 
+}
+
+# bash function
+function bash {
+  & 'C:\Program Files\Git\bin\bash.exe'
 }
