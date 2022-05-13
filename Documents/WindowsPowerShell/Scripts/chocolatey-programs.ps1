@@ -1,16 +1,16 @@
 # Chocolatey Installation Scripts
+# This is a temporary solution until winget has fixed its bugs
+
+choco install microsoft-windows-terminal -y
 
 
-choco install microsoft-windows-terminal
+choco install firefox -y
 
+choco install vim -y
 
-choco install firefox
+#choco install virtualbox -y
 
-choco install vim
+#choco install nextcloud-client -y
 
-#choco install virtualbox
-
-#choco install nextcloud-client
-
-#choco install vmwareworkstation
+#choco install vmwareworkstation -y
 
