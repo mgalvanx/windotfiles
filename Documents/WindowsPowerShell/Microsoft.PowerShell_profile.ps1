@@ -18,10 +18,10 @@ function bash {
   & 'C:\Program Files\Git\bin\bash.exe'
 }
 
-# adding vim Function
-#function vi {
-#  & 'C:\Program Files\vim\vim82\vim.exe' @
-#}
+# winget doesn't add vim to path so this is a workaround
+function vi {
+  & 'C:\Program Files\vim\vim82\vim.exe' @ARGS
+}
 
 # Remove When Winget Add Programs To Path
 # Import the Chocolatey Profile that contains the necessary code to enable
