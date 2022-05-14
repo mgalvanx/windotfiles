@@ -1,6 +1,21 @@
-# Make powershell actually usable for vi mode
-Set-PSReadlineOption -EditMode vi
 
+# When PSScriptRoot is called in a script. It value becomes the directory of the where the script is being run(We are simply renaming this variable to $profiledir)
+$profiledir = $PSScriptRoot;
+
+function Test-Administrator  {  
+	$user = [Security.Principal.WindowsIdentity]::GetCurrent();
+	(New-Object Security.Principal.WindowsPrincipal $user).IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)  
+}
+
+# Edit whole dir, so we can edit included files etc
+function edit-powershell-profile {
+	vi $profileDir
+}
+
+function update-powershell-profile {
+	& $profile
+}
+	
 # Adding a module and script folder to $profile
 $scripts = "$(split-path $profile)\Scripts"
 $modules = "$(split-path $profile)\Modules"
@@ -23,6 +38,11 @@ function vi {
   & 'C:\Program Files\vim\vim82\vim.exe' @ARGS
 }
 
+# Open file with default program
+function open($file) {
+  Invoke-item $file
+}
+
 # Remove When Winget Add Programs To Path
 # Import the Chocolatey Profile that contains the necessary code to enable
 # tab-completions to function for `choco`.
@@ -34,3 +54,11 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 ## Remove This as Well
+
+foreach ( $includeFile in ("defaults", "unix") ) {
+	Unblock-File $profileDir\$includeFile.ps1
+. "$profileDir\$includeFile.ps1"
+}
+
+set-location $home
+write-output "my stuff has been loaded"
