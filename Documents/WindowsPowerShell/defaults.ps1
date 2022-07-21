@@ -1,7 +1,8 @@
 # Make powershell bearable with vi mode and history
 Import-Module PSReadLine
 Set-PSReadlineOption -Editmode vi
-
+# Make Ctrl+[ work like unix if we can't remap capslock to escape
+Set-PSReadlineKeyHandler -Chord 'Ctrl+[' -Function ViCommandMode
 # Turn off that annoying bell
 Set-PSReadlineOption -Bellstyle None
 
