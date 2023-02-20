@@ -1,9 +1,13 @@
-set clipboard=unnamed
+"set clipboard=unnamed
 
 
-# No swap files
+" No swap files
 set nobackup
 set noswapfile
 set nowritebackup
+set shortmess=a
 
-set icon
+" Allows you to use vimagic commands with powershell
+set shell=powershell shellquote=( shellpipe=\| shellredir=> shellxquote=		
+set shellcmdflag=-NoLogo\ -NoProfile\ -ExecutionPolicy\ RemoteSigned\ -Command
+	

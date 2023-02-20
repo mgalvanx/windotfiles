@@ -34,8 +34,10 @@ function bash {
 
 # winget doesn't add vim to path so this is a workaround
 function vi {
-  & 'C:\Program Files\vim\vim82\vim.exe' @ARGS
+  & 'C:\Program Files\vim\vim90\vim.exe' @ARGS
 }
+
+set-alias -Name "less" -Value 'C:\Program Files\Git\usr\bin\less.exe'
 
 # Open file with default program
 function open($file) {
@@ -60,4 +62,3 @@ foreach ( $includeFile in ("defaults", "unix") ) {
 }
 
 set-location $home
-write-output "my stuff has been loaded"
