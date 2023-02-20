@@ -1,7 +1,7 @@
 # Installation
 
-You can run pipe the installation script directly into git-bash using the following snippet.
+You can run the installation script directly using git-bash by using the following command.
 
-`sudo https://gitlab.com/-/snippets/2302979/raw | bash`
+`sudo curl https://gitlab.com/-/snippets/2302979/raw | bash`
 
-These snippet using bash to install the my powershell profile and my "windows dotfiles"
+This snippet uses the bash executable inside of git bash in order to install my "windows dotfiles" in order to make powershell useable.
